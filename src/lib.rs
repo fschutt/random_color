@@ -142,17 +142,6 @@ impl RandomColor {
         format!("rgb({}, {}, {})", rgb[0], rgb[1], rgb[2])
     }
 
-    pub fn to_rgba_string(&self) -> String {
-        let (h, s, b) = self.generate_color();
-        let rgb = self.hsv_to_rgb(h, s, b);
-        let a: f32 = match self.alpha {
-            Some(alpha) => alpha,
-            None => rand::random(),
-        };
-
-        format!("rgba({}, {}, {}, {})", rgb[0], rgb[1], rgb[2], a)
-    }
-
     pub fn to_rgb_array(&self) -> [u8; 3] {
         let (h, s, b) = self.generate_color();
         self.hsv_to_rgb(h, s, b)
@@ -163,16 +152,6 @@ impl RandomColor {
         let hsv = self.hsv_to_hsl(h, s, b);
 
         format!("hsl({}, {}%, {}%)", hsv[0], hsv[1], hsv[2])
-    }
-
-    pub fn to_hsla_string(&self) -> String {
-        let (h, s, b) = self.generate_color();
-        let hsv = self.hsv_to_hsl(h, s, b);
-        let a: f32 = match self.alpha {
-            Some(alpha) => alpha,
-            None => rand::random(),
-        };
-        format!("hsl({}, {}%, {}%, {})", hsv[0], hsv[1], hsv[2], a)
     }
 
     pub fn to_hsl_array(&self) -> [u32; 3] {
