@@ -248,7 +248,7 @@ impl RandomColor {
         }
 
         match self.seed {
-            None => SmallRng::from_entropy().gen_range(min..max),
+            None => SmallRng::seed_from_u64(0).gen_range(min..max),
             Some(seed) => SmallRng::seed_from_u64(seed).gen_range(min..max),
         }
     }
