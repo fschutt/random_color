@@ -13,4 +13,4 @@ description = "Rust crate for generating random attractive colors"
 [features]
 
 [dependencies]
-rand = { version = "0.8.5", features = ["small_rng"] }
+rand = { version = "0.8.5", features = ["small_rng", "js"] }
